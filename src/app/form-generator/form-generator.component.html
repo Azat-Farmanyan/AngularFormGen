@@ -1,0 +1,36 @@
+<!-- <button (click)="submitForm()">Show form</button> -->
+
+<form class="form-block" [formGroup]="form" (ngSubmit)="submitForm()">
+
+    <h1 class="form-title">Анкета</h1>
+    <div class="form-body">
+
+        @for ( field of formData.fields; track field.labelEn) {
+
+        @if (field.type === 'testCheckbox') {
+        <app-test-checkbox (checkboxValuesChange)="updateCheckboxValues(field.labelEn, $event)"
+            [field]="field"></app-test-checkbox>
+        }
+
+
+        @if (field.type === 'testInput') {
+
+        @if (!!field.inputType && field.inputType==='text') {
+        <app-test-input (inputValueChange)="updateFormControlValue(field.labelEn, $event)" [label]="field.labelRu"
+            [description]="field.description?field.description:''" [required]="!!field.required"></app-test-input>
+        }
+
+        @if (!!field.inputType && field.inputType==='number') {
+        <app-test-number (inputValueChange)="updateFormControlValue(field.labelEn, $event)" [label]="field.labelRu"
+            [description]="field.description?field.description:''" [required]="!!field.required"></app-test-number>
+        }
+        }
+
+        @if (field.type === 'testSelect') {
+        <app-test-select [label]="field.labelRu" [description]="field.description?field.description:''"
+            [required]="!!field.required"></app-test-select>
+        }}
+
+        <button type="submit">Отправить</button>
+    </div>
+</form>

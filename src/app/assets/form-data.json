@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "type": "testInput",
+      "labelRu": "Имя",
+      "labelEn": "Name",
+      "description": "Введите ваше имя",
+      "required": true,
+      "inputType": "text"
+    },
+    {
+      "type": "testInput",
+      "labelRu": "Возраст",
+      "labelEn": "Age",
+      "description": "Введите ваш возраст",
+      "required": true,
+      "inputType": "number"
+    },
+
+    {
+      "type": "testSelect",
+      "labelRu": "Семейное положение",
+      "labelEn": "Family-status",
+      "choices": ["Не женат / не замужем", "Женат / замужем"],
+      "required": true
+    },
+
+    {
+      "type": "testInput",
+      "labelRu": "ВУЗ",
+      "labelEn": "University",
+      "description": "Укажите заведения, в которых вы учились.",
+      "inputType": "text"
+    },
+
+    {
+      "type": "testSelect",
+      "labelRu": "Место рождения",
+      "labelEn": "Place-of-Birth",
+      "choices": [
+        "Не важно",
+        "Астрахань",
+        "Волгоград",
+        "Волжский",
+        "Ростов-на-Дону",
+        "Саратов",
+        "Элиста"
+      ]
+    },
+
+    {
+      "type": "testCheckbox",
+      "labelRu": "Навыки",
+      "labelEn": "Skills",
+      "required": true,
+      "choices": [
+        "Общение",
+        "Вождение",
+        "Иностранные языки",
+        "Программирование",
+        "Бег с препятствиями",
+        "Управление вертолетом",
+        "Быстрое чтение",
+        "Оперное пение",
+        "Самозащита",
+        "Выделить все"
+      ]
+    }
+  ]
+}

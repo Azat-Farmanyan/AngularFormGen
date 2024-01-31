@@ -1,0 +1,7 @@
+<div class="input-block">
+    <label for="{{ field.labelEn }}">{{ field.labelEn }}:</label>
+    <div *ngFor="let choice of field.choices">
+        <input type="checkbox" [checked]="checkboxValues[choice]" (change)="onCheckboxChange(choice, $event)" />
+        {{ choice }}
+    </div>
+</div>

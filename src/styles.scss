@@ -1,1 +1,64 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("./null.scss");
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+label {
+    color: #000;
+    font-family: "PT Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    max-width: 140px;
+    width: 100%;
+
+    // display: block;
+    & span {
+        color: red;
+        position: relative;
+        left: -3px;
+    }
+}
+
+.form-title {
+    color: #000;
+    font-family: "PT Sans";
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 42px;
+}
+
+input {
+    border-radius: 3px;
+    border: 1px solid #C3C3C3;
+    background: #FFF;
+    padding: 10px 15px;
+    max-width: 500px;
+    width: 100%;
+
+    color: #000;
+    font-family: "PT Sans";
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-block {
+    display: flex;
+}

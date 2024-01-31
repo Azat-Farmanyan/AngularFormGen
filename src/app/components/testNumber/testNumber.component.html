@@ -1,0 +1,18 @@
+<div class="input-block">
+    <label for="{{ label }}">{{ label }} <span *ngIf="required">*</span></label>
+
+    <div class="input-item">
+        <input type="number" inputmode="numeric" [(ngModel)]="inputValue" [id]="label" [placeholder]="''"
+            (input)="onInputChange($event)" />
+
+        <div class="up-down-btns">
+            <button class="up-btn" type="button" (click)="increaseNumber()">
+                <img src="../../../assets/icons/up-arrow.svg" alt="+">
+
+            </button>
+            <button class="down-btn" type="button" (click)="decreaseNumber()">
+                <img src="../../../assets/icons/down-arrow.svg" alt="-">
+            </button>
+        </div>
+    </div>
+</div>
