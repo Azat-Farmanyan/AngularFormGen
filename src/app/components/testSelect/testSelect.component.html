@@ -1,1 +1,24 @@
-<p>testSelect works!</p>,
+<div class="input-block">
+    <label for="{{ label }}">{{ label }} <span *ngIf="required">*</span></label>
+
+    <div class="input-item">
+        <div (click)="optionToggle()" class="select-input input"
+            [ngStyle]="{'background-color': optionsIsOpen ? '#F5F5F5' : '#fff'}">
+            <svg class="open-arrow" [ngClass]="{'close-arrow': optionsIsOpen}" xmlns="http://www.w3.org/2000/svg"
+                width="16" height="9" viewBox="0 0 16 9" fill="none">
+                <path d="M15.1421 1.07107L8.07104 8.14214L0.999977 1.07107" stroke="black" />
+            </svg>
+            {{activeOption}}
+
+
+            @if (optionsIsOpen) {
+            <div class="options">
+                @for (choice of choices; track choice) {
+                <div (click)="setActive(choice)" class="option-item"
+                    [ngClass]="{'active-option': choice===activeOption}">{{choice}}</div>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</div>

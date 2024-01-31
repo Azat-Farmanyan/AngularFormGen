@@ -27,8 +27,9 @@
         }
 
         @if (field.type === 'testSelect') {
-        <app-test-select [label]="field.labelRu" [description]="field.description?field.description:''"
-            [required]="!!field.required"></app-test-select>
+        <app-test-select (inputValueChange)="updateFormControlValue(field.labelEn, $event)" [label]="field.labelRu"
+            [description]="field.description?field.description:''" [required]="!!field.required"
+            [choices]="field.choices?field.choices:[]"></app-test-select>
         }}
 
         <button type="submit">Отправить</button>

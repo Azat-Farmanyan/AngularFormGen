@@ -17,8 +17,12 @@
   align-items: center;
   justify-content: center;
 
-  &:active {
+  &:hover {
     background-color: #d3d3d3;
+  }
+
+  &:active {
+    background-color: #cccccc;
   }
 }
 
