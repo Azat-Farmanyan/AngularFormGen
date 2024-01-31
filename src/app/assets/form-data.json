@@ -4,7 +4,7 @@
       "type": "testInput",
       "labelRu": "Имя",
       "labelEn": "Name",
-      "description": "Введите ваше имя",
+      "placeholder": "Введите ваше имя",
       "required": true,
       "inputType": "text"
     },
@@ -30,7 +30,9 @@
       "labelRu": "ВУЗ",
       "labelEn": "University",
       "description": "Укажите заведения, в которых вы учились.",
-      "inputType": "text"
+      "inputType": "text",
+      "multiple": true,
+      "placeholder": "Например, ВолгГУ"
     },
 
     {

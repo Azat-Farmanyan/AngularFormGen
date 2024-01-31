@@ -23,7 +23,9 @@ export class TestSelectComponent implements OnChanges {
       if (this.choices.length > 0) {
         this.activeOption = this.choices[0];
         this.selectedItem = this.choices[0];
-        // this.inputValueChange.emit(this.selectedItem);
+        if (!this.required) {
+          this.inputValueChange.emit(this.selectedItem);
+        }
       }
     }
   }
@@ -41,6 +43,13 @@ export class TestSelectComponent implements OnChanges {
 
   optionToggle() {
     this.optionsIsOpen = !this.optionsIsOpen;
+  }
+
+  showOptions() {
+    this.optionsIsOpen = true;
+  }
+  hideOptions() {
+    this.optionsIsOpen = false;
   }
 
   setActive(selectedItemRes: string) {

@@ -1,12 +1,15 @@
 <div class="input-block">
     <label for="{{ field.labelRu }}">{{ field.labelRu }}</label>
     <div class="checkbox-body">
+        @for (choice of field.choices; track $index) {
 
-        <div class="checkbox-item" *ngFor="let choice of field.choices">
+        <div class="checkbox-item">
             <input type="checkbox" [checked]="checkboxValues[choice]" (change)="onCheckboxChange(choice, $event)" />
-            <p>
+            <p [ngStyle]="{'font-weight': $index === field!.choices!.length-1 ? '700' : '400'}">
                 {{ choice }}
             </p>
         </div>
+        }
+
     </div>
 </div>

@@ -2,7 +2,7 @@
     <label for="{{ label }}">{{ label }} <span *ngIf="required">*</span></label>
 
     <div class="input-item">
-        <div (click)="optionToggle()" class="select-input input"
+        <div (mouseenter)="showOptions()" (mouseleave)="hideOptions()" class="select-input input"
             [ngStyle]="{'background-color': optionsIsOpen ? '#F5F5F5' : '#fff'}">
             <svg class="open-arrow" [ngClass]="{'close-arrow': optionsIsOpen}" xmlns="http://www.w3.org/2000/svg"
                 width="16" height="9" viewBox="0 0 16 9" fill="none">

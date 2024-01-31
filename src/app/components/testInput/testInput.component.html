@@ -1,5 +1,52 @@
+@if (multiple) {
 <div class="input-block">
     <label for="{{ label }}">{{ label }} <span *ngIf="required">*</span></label>
+    <div class="inputs-body">
+        @for (inputItem of inputValuesArray; track $index) {
+        <input type="text" [id]="label" [placeholder]="!!field.placeholder ? field.placeholder : ''"
+            (input)="onInputChangeForMultiple($event, $index)" />
 
-    <input type="text" [id]="label" [placeholder]="description" (input)="onInputChange($event)" />
+        <div class="input-block-btns" [ngStyle]="{'right': inputValuesArray.length>1 ? '-190px' : '-150px'}">
+            @if (inputValuesArray.length>1) {
+            <button type="button" class="delete-btn" (click)="deleteInput()">
+                <img src="../../../assets/icons/delete-icon.svg" alt="Delete">
+            </button>
+            }
+            <button type="button" class="add-btn" (click)="createInput()">
+                <img src="../../../assets/icons/add-icon.svg" alt="Add">
+                <p> Добавить еще </p>
+            </button>
+        </div>
+        }
+
+        @if (!!field.description) {
+        <p class="description input-description">{{ field.description }}</p>
+        }
+    </div>
+    <!-- <div class="input-block-btns">
+        @if (inputValuesArray.length>1) {
+        <button class="delete-btn" (click)="deleteInput()">
+            Удалить
+        </button>
+        }
+        <button class="add-btn" (click)="createInput()">
+            <img src="../../../assets/icons/add-icon.svg" alt="Add">
+            <p>
+                Добавить еще
+            </p>
+        </button>
+
+    </div> -->
 </div>
+} @else {
+<div class="input-block">
+    <label for="{{ label }}">{{ label }} <span *ngIf="required">*</span></label>
+    <div style="width: 100%; max-width: 500px;">
+        <input type="text" [id]="label" [placeholder]="!!field.placeholder ? field.placeholder : ''"
+            (input)="onInputChange($event)" />
+        @if (!!field.description) {
+        <p class="description">{{ field.description }}</p>
+        }
+    </div>
+</div>
+}

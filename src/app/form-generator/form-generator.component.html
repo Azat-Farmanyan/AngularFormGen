@@ -16,8 +16,10 @@
         @if (field.type === 'testInput') {
 
         @if (!!field.inputType && field.inputType==='text') {
-        <app-test-input (inputValueChange)="updateFormControlValue(field.labelEn, $event)" [label]="field.labelRu"
-            [description]="field.description?field.description:''" [required]="!!field.required"></app-test-input>
+
+        <app-test-input (inputValueChange)="updateFormControlValue(field.labelEn, $event, field.multiple)"
+            [label]="field.labelRu" [description]="field.description?field.description:''" [required]="!!field.required"
+            [field]="field" [multiple]="!!field.multiple"></app-test-input>
         }
 
         @if (!!field.inputType && field.inputType==='number') {
@@ -32,6 +34,6 @@
             [choices]="field.choices?field.choices:[]"></app-test-select>
         }}
 
-        <button type="submit">Отправить</button>
+        <button style="margin-left: 140px;" type="submit" class="submit-btn" [disabled]="!form.valid">Отправить</button>
     </div>
 </form>

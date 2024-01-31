@@ -10,4 +10,6 @@ export interface FormFieldI {
   required?: boolean;
   choices?: string[];
   inputType?: string; // text or number
+  multiple?: boolean;
+  placeholder?: string;
 }

@@ -4,6 +4,7 @@ import { FormDataI } from '../interfaces/form-data.interface';
 import { HttpClientModule } from '@angular/common/http';
 import jsonData from '../assets/form-data.json';
 import {
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -42,22 +43,29 @@ export class FormGeneratorComponent implements OnInit {
     this.formData.fields.forEach((field) => {
       const validators = field.required ? [Validators.required] : [];
 
-      if (field.type === 'testCheckbox') {
-        const checkboxGroup = this.fb.group({});
+      if (field.type === 'testCheckbox' && !!field.multiple === false) {
+        const checkboxGroup = this.fb.group({}, validators);
         field.choices?.forEach((choice) => {
           checkboxGroup.addControl(choice, new FormControl(false));
         });
         this.form.addControl(field.labelEn, checkboxGroup);
+      } else if (!!field.multiple) {
+        const fieldArray = this.fb.array([], validators);
+        this.form.addControl(field.labelEn, fieldArray);
       } else {
         this.form.addControl(field.labelEn, this.fb.control('', validators));
       }
     });
   }
 
-  updateFormControlValue(controlName: string, newValue: any) {
-    console.log(newValue);
-    this.form.get(controlName)?.setValue(newValue);
-    // console.log(this.form.get('Name'));
+  updateFormControlValue(
+    controlName: string,
+    newValue: any,
+    multiple: boolean = false
+  ) {
+    multiple
+      ? this.updateMultipleValues(controlName, newValue)
+      : this.form.get(controlName)?.setValue(newValue);
   }
 
   updateCheckboxValues(
@@ -68,9 +76,23 @@ export class FormGeneratorComponent implements OnInit {
     checkboxGroup.patchValue(values);
   }
 
+  updateMultipleValues(controlName: string, values: string[]) {
+    const multipleArray = this.form.get(controlName) as FormArray;
+
+    while (multipleArray.length) {
+      multipleArray.removeAt(0);
+    }
+
+    values.forEach((value) => {
+      multipleArray.push(this.fb.control(value));
+    });
+  }
+
   submitForm() {
     if (this.form.valid) {
       console.log(this.form.value);
+
+      this.form.reset();
     }
   }
 }
