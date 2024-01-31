@@ -91,8 +91,7 @@ export class FormGeneratorComponent implements OnInit {
   submitForm() {
     if (this.form.valid) {
       console.log(this.form.value);
-
-      this.form.reset();
+      alert('Посмотрите в консоле данные формы');
     }
   }
 }

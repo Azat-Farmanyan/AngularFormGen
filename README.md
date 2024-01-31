@@ -1,27 +1,64 @@
+```markdown
 # AngularFormGen
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+Этот проект был создан с использованием [Angular CLI](https://github.com/angular/angular-cli) версии 17.0.3.
 
-## Development server
+## Разработка
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Запустите `ng serve` для запуска сервера разработки. Перейдите по адресу `http://localhost:4200/`. Приложение автоматически перезагрузится при изменении исходных файлов.
 
-## Code scaffolding
+## Генерация кода
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Запустите `ng generate component component-name` для создания нового компонента. Вы также можете использовать `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Сборка
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Запустите `ng build` для сборки проекта. Собранные артефакты будут сохранены в каталоге `dist/`.
 
-## Running unit tests
+## Запуск юнит-тестов
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Запустите `ng test` для выполнения юнит-тестов с использованием [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Запуск тестов end-to-end
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Запустите `ng e2e` для выполнения тестов end-to-end на платформе вашего выбора. Для использования этой команды вам необходимо предварительно добавить пакет, реализующий возможности тестирования end-to-end.
 
-## Further help
+## Дополнительная помощь
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Чтобы получить дополнительную помощь по Angular CLI, используйте `ng help` или посетите страницу [Angular CLI Overview and Command Reference](https://angular.io/cli).
+
+## Описание проекта
+
+### Тестовое задание по Angular
+
+**Препроцессор:** SCSS/Stylus
+
+**Сборка:** Angular CLI
+
+**Загрузка фреймворка, библиотек и модулей:** npm
+
+**Задание:** Реализовать генератор форм, где каждый элемент формы представляет собой Angular компонент.
+
+**Структура компонента:**
+
+- `element.component.html`
+- `element.component.scss`
+- `element.component.ts`
+
+**Всего 4 компонента:**
+
+1. `testInput`
+2. `testSelect`
+3. `testNumber`
+4. `testCheckbox`
+
+**Описание:**
+
+- Из четырех компонентов может быть сгенерировано сколько угодно полей формы.
+- Форма на сервер отправляется одной моделью `testForm`.
+- Каждое поле возвращает значение для общей модели (примеры: `testForm.name`, `testForm.age`).
+- JSON формат, по которому происходит генерация, приходит с сервера.
+- JSON формат должен включать как минимум: `label` (обязательно для всех), `description` (необязательное поле), `required` (необязательное поле), `choices` (обязательное не для всех).
+- Форма обязательно должна иметь возможность редактирования (т.е. мы можем заново собрать форму, подставить модель `testForm` и все значения будут подставлены в компоненты).
+- Компоненты, имеющие разные виды представления, имеют параметры модификаторы (например, `testSelect`: `active` может быть выделен в списке вариантов, а может быть исключён из списка).
+```
